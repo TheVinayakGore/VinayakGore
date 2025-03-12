@@ -45,7 +45,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
   return (
     <>
       <main className="flex flex-col items-center justify-center mx-auto max-w-6xl h-full w-full">
-        <div className="flex flex-col items-center justify-center overflow-hidden rounded-md w-full h-full">
+        <section className="flex flex-col items-center justify-center overflow-hidden rounded-md w-full h-full">
           <div className="flex flex-col items-center justify-center">
             <TextGenerateEffect
               headline={headline}
@@ -79,9 +79,9 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
             />
             <div className="absolute inset-0 w-full h-full bg-white dark:bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
           </div>
-        </div>
+        </section>
 
-        <div className="flex flex-col items-center justify-center space-y-5 w-full h-full px-4 md:px-10 lg:px-20">
+        <section className="flex flex-col items-center justify-center space-y-5 w-full h-full px-4 md:px-10 lg:px-20">
           <TypewriterEffect words={words} className="text-center mx-2" />
 
           <div className="flex flex-col sm:flex-row justify-center text-center text-sm text-zinc-500 font-medium space-y-4 sm:space-y-0 sm:space-x-3">
@@ -105,7 +105,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
               </button>
             </Link>
           </div>
-        </div>
+        </section>
       </main>
     </>
   );

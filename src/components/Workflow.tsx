@@ -131,7 +131,7 @@ const Workflow = () => {
             {projects
               .filter(
                 (project) =>
-                  project.title === "Mega Mall" || project.title === "Key.Store"
+                  project.title === "Menzy Cart" || project.title === "Key.Store"
               )
               .map((project) => (
                 <Link
@@ -146,7 +146,7 @@ const Workflow = () => {
                     width={500}
                     height={500}
                     priority
-                    className="rounded-lg transform hover:scale-105 duration-300 w-full h-40 sm:h-44 lg:h-60 shadow-md"
+                    className="rounded-lg transform hover:scale-105 duration-300 w-full h-auto shadow-md"
                   />
                 </Link>
               ))}
@@ -190,7 +190,7 @@ const Workflow = () => {
                     width={500}
                     height={500}
                     priority
-                    className="rounded-lg transform hover:scale-105 duration-300 h-40 md:h-44 lg:h-60 w-full shadow-md"
+                    className="rounded-lg transform hover:scale-105 duration-300 h-auto w-full shadow-md"
                   />
                 </Link>
               ))}
@@ -237,7 +237,7 @@ const Workflow = () => {
                 width={500}
                 height={500}
                 priority
-                className="rounded-lg transform hover:scale-105 duration-300 w-full h-40 sm:h-44 lg:h-60 shadow-md"
+                className="rounded-lg transform hover:scale-105 duration-300 w-full h-auto shadow-md"
               />
             </Link>
             <Link
@@ -250,7 +250,7 @@ const Workflow = () => {
                 width={500}
                 height={500}
                 priority
-                className="rounded-lg transform hover:scale-105 duration-300 w-full h-40 sm:h-44 lg:h-60 shadow-md"
+                className="rounded-lg transform hover:scale-105 duration-300 w-full h-auto shadow-md"
               />
             </Link>
           </div>
@@ -427,6 +427,5 @@ const Workflow = () => {
     </>
   );
 };
-
 
 export default Workflow;

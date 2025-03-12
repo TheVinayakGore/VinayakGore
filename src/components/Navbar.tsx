@@ -112,11 +112,14 @@ const Navbar = ({
     }
   };
 
+  const navLinkClass =
+    "flex items-start justify-center space-x-1 pl-3 pr-2 font-normal hover:font-medium hover:text-sky-500 relative transition-all duration-200 before:absolute before:-bottom-3 before:left-1/2 before:w-0 before:h-[0.16rem] before:bg-sky-400 before:transition-all before:duration-700 before:-translate-x-1/2 hover:before:w-full hover:before:left-0 hover:before:translate-x-0 hover:before:bottom-[-4px]";
+
   return (
     <>
       <nav
         className={cn(
-          `fixed top-5 inset-x-0 max-w-[15rem] sm:max-w-[38rem] lg:max-w-[40rem] text-sm sm:text-base mx-auto z-50`,
+          `fixed top-5 inset-x-0 max-w-[15rem] sm:max-w-[38rem] lg:max-w-[50rem] text-sm sm:text-base mx-auto z-50`,
           className
         )}
       >
@@ -136,14 +139,14 @@ const Navbar = ({
 
             <div className="responsive-nav flex items-center space-x-6 font-light">
               <MenuItem setActive={setActive} active={active} item="Auther">
-                <div className="flex flex-col space-y-4 text-sm">
+                <div className="flex flex-col space-y-4 text-base">
                   <HoveredLink href="/#auther">Who am I ?</HoveredLink>
                   <HoveredLink href="/#techStacks">Tech Stacks</HoveredLink>
                   <HoveredLink href="/#freelance">Freelance</HoveredLink>
                 </div>
               </MenuItem>
               <MenuItem setActive={setActive} active={active} item="Projects">
-                <div className="text-sm grid grid-cols-1/2 lg:grid-cols-2 gap-2 w-[20rem] lg:w-[40rem] mx-auto h-full">
+                <div className="text-sm grid grid-cols-1/2 lg:grid-cols-2 gap-2 w-[20rem] lg:w-[40rem] overflow-auto m-auto h-full">
                   <Suspense fallback={<LoadingSpinner />}>
                     {loading ? (
                       <div className="flex justify-center items-center w-full h-full">
@@ -175,7 +178,7 @@ const Navbar = ({
                 </div>
               </MenuItem>
               <MenuItem setActive={setActive} active={active} item="Contact">
-                <div className="flex flex-col space-y-4 text-sm">
+                <div className="flex flex-col space-y-4 text-base">
                   <HoveredLink href={mailtoLink}>Email</HoveredLink>
                   <HoveredLink href="/#socialMedia">Social Media</HoveredLink>
                   <HoveredLink href="/">
@@ -194,7 +197,7 @@ const Navbar = ({
                 href="/create"
                 target="_blank"
                 prefetch={true}
-                className="flex items-start space-x-1 text-black dark:text-zinc-500 hover:text-blue-600 dark:hover:text-blue-600"
+                className={navLinkClass}
               >
                 Create
                 <PiArrowUpRightBold className="text-xs font-light w-2 h-2" />
@@ -203,7 +206,7 @@ const Navbar = ({
                 href="/blogs"
                 target="_blank"
                 prefetch={true}
-                className="flex items-start space-x-1 text-black dark:text-zinc-500 hover:text-blue-600 dark:hover:text-blue-600"
+                className={navLinkClass}
               >
                 Blogs
                 <PiArrowUpRightBold className="text-xs font-light w-2 h-2" />
@@ -225,12 +228,12 @@ const Navbar = ({
               ) : (
                 <Link
                   href="/sign-in"
-                  className="flex cursor-pointer hover:text-white border border-zinc-700 hover:bg-gradient-to-r from-blue-500 to-blue-700 hover:border-blue-600 rounded-full"
+                  className="flex cursor-pointer hover:text-white border border-zinc-400 dark:border-zinc-700 hover:border-sky-500 hover:shadow-lg hover:bg-gradient-to-br from-sky-500 to-blue-700 rounded-full"
                 >
-                  <span className="responsive-themBtn text-sm px-7 py-2">
+                  <span className="responsive-themBtn text-sm px-8 py-2">
                     Login
                   </span>
-                  <IoMdLogIn className="block sm:hidden text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white p-2 w-8 h-8" />
+                  <IoMdLogIn className="block sm:hidden hover:text-white p-2 w-10 h-10" />
                 </Link>
               )}
               <button
