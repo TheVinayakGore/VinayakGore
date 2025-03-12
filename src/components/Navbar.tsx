@@ -18,7 +18,7 @@ import { BsMoonStars } from "react-icons/bs";
 import { HiOutlineSun } from "react-icons/hi2";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import SideBar from "./SideBar";
-import { UserButton, useUser } from "@clerk/nextjs"; // Import Clerk components
+import { UserButton, useUser } from "@clerk/nextjs";
 import { IoMdLogIn } from "react-icons/io";
 
 const LoadingSpinner = lazy(() => import("@/components/LoadingSpinner"));
@@ -119,7 +119,7 @@ const Navbar = ({
     <>
       <nav
         className={cn(
-          `fixed top-5 inset-x-0 max-w-[15rem] sm:max-w-[38rem] lg:max-w-[50rem] text-sm sm:text-base mx-auto z-50`,
+          `fixed top-5 inset-x-0 max-w-[20rem] sm:max-w-[45rem] lg:max-w-[50rem] text-sm sm:text-base px-2 sm:px-0 m-auto z-50`,
           className
         )}
       >
@@ -131,13 +131,13 @@ const Navbar = ({
                 alt="logo"
                 width={40}
                 height={40}
-                className="rounded-full"
+                className="rounded-md shadow-lg w-auto h-10"
                 priority
               />
-              <p className="text-base block sm:hidden">Vinu Gore</p>
+              <p className="text-xl leading-none font-semibold block sm:hidden">Vinu <br /> Gore</p>
             </Link>
 
-            <div className="responsive-nav flex items-center space-x-6 font-light">
+            <div className="responsive-nav flex items-center gap-4 font-light">
               <MenuItem setActive={setActive} active={active} item="Auther">
                 <div className="flex flex-col space-y-4 text-base">
                   <HoveredLink href="/#auther">Who am I ?</HoveredLink>
@@ -213,14 +213,14 @@ const Navbar = ({
               </Link>
             </div>
 
-            <div className="flex items-center space-x-2 text-xs font-medium dark:text-zinc-100">
+            <div className="flex items-center gap-3 text-xs font-medium dark:text-zinc-100">
               {isSignedIn ? (
-                <div className="flex items-center border-2 rounded-full">
+                <div className="flex items-center border rounded-md">
                   <UserButton
                     afterSignOutUrl="/"
                     appearance={{
                       elements: {
-                        avatarBox: "w-10 h-10", // Adjusts the avatar size
+                        avatarBox: "rounded w-10 h-10", // Adjusts the avatar size
                       },
                     }}
                   />
@@ -228,22 +228,26 @@ const Navbar = ({
               ) : (
                 <Link
                   href="/sign-in"
-                  className="flex cursor-pointer hover:text-white border border-zinc-400 dark:border-zinc-700 hover:border-sky-500 hover:shadow-lg hover:bg-gradient-to-br from-sky-500 to-blue-700 rounded-full"
+                  className="flex cursor-pointer hover:text-white border border-zinc-400 dark:border-zinc-700 hover:border-white dark:hover:border-white hover:shadow-lg hover:bg-gradient-to-tr from-yellow-400 to-orange-500 rounded-md"
                 >
-                  <span className="responsive-themBtn text-sm px-8 py-2">
+                  <span className="responsive-themBtn text-sm leading-none px-8 py-3">
                     Login
                   </span>
                   <IoMdLogIn className="block sm:hidden hover:text-white p-2 w-10 h-10" />
                 </Link>
               )}
               <button
-                className="responsive-themBtn text-2xl p-3 text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 rounded-full"
+                className="responsive-themBtn text-2xl p-2 hover:shadow-md border border-zinc-400 dark:border-zinc-700 hover:border-white dark:hover:border-white hover:bg-gradient-to-bl from-sky-400 to-fuchsia-500 hover:text-white rounded-md"
                 onClick={toggleTheme}
               >
-                {isSunIcon ? <HiOutlineSun /> : <BsMoonStars />}
+                {isSunIcon ? (
+                  <HiOutlineSun className="leading-none" />
+                ) : (
+                  <BsMoonStars className="leading-none" />
+                )}
               </button>
               <button
-                className="block sm:hidden text-2xl p-3 text-zinc-400 hover:text-black dark:hover:text-white bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 rounded-full"
+                className="block sm:hidden text-2xl p-2 hover:shadow-md border border-zinc-400 dark:border-zinc-700 hover:border-white dark:hover:border-white hover:bg-gradient-to-bl from-sky-400 to-fuchsia-500 hover:text-white rounded-md"
                 onClick={openSidebar}
               >
                 <MdOutlineDashboardCustomize />
