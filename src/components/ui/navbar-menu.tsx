@@ -39,11 +39,11 @@ export const MenuItem = ({
           transition={transition}
         >
           {active === item && children && (
-            <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 pt-1 transform -translate-x-1/2">
+            <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 pt-4 transform -translate-x-1/2">
               <motion.div
                 transition={transition}
                 layoutId="active"
-                className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xl"
+                className="bg-white dark:bg-black backdrop-blur-sm rounded-lg overflow-hidden border border-zinc-400 dark:border-zinc-700 shadow-xl"
               >
                 <motion.div layout className="p-4 w-max h-full">
                   {children}
@@ -89,32 +89,37 @@ export const ProductItem = ({
   priority?: boolean;
 }) => {
   return (
-    <Link
-      href={href}
-      target="_blank"
-      className="flex space-x-4 items-start justify-center m-auto group hover:bg-gradient-to-r from-rose-300 to-pink-500 dark:from-blue-700 dark:to-pink-600 hover:text-white text-black dark:text-white rounded-md p-2 overflow-auto w-full h-full"
-    >
-      <div className="relative w-44 h-full">
-        <Image
-          src={src}
-          alt={title}
-          width={500}
-          height={500}
-          className="rounded dark:shadow-xl group-hover:shadow-zinc-950/[0.4] border border-zinc-200 w-full h-full"
-          priority={priority}
-        />
-      </div>
-      <div className="text-sm lg:text-base w-1/2">
-        <h4 className="text-base font-bold mb-1 w-full">{title}</h4>
-        <p className="text-xs lg:text-sm">{description}...</p>
-      </div>
-    </Link>
+    <>
+      <Link
+        href={href}
+        target="_blank"
+        className="flex space-x-4 items-start justify-center m-auto group hover:bg-gradient-to-tl from-sky-400 to-cyan-400 hover:text-white text-black dark:text-white rounded-md p-2 overflow-auto w-full h-full"
+      >
+        <div className="relative w-44 h-full">
+          <Image
+            src={src}
+            alt={title}
+            width={500}
+            height={500}
+            className="rounded border border-zinc-200 w-full h-full"
+            priority={priority}
+          />
+        </div>
+        <div className="text-sm lg:text-base w-1/2">
+          <h4 className="text-base font-bold mb-1 w-full">{title}</h4>
+          <p className="text-xs lg:text-sm">{description}...</p>
+        </div>
+      </Link>
+    </>
   );
 };
 
 export const HoveredLink = ({ children, ...rest }: any) => {
   return (
-    <Link {...rest} className="hover:text-sky-400 text-base font-normal w-full h-full">
+    <Link
+      {...rest}
+      className="hover:text-sky-400 text-base font-normal w-full h-full"
+    >
       {children}
     </Link>
   );
